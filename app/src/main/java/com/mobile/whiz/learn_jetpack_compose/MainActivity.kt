@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Black
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,6 +51,8 @@ fun AppUi() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             MiddleTexts()
+            Spacer(modifier = Modifier.height(100.dp))
+            RecorderImage()
         }
         Column(
             modifier = Modifier.align(Alignment.BottomCenter),
@@ -75,6 +79,16 @@ fun AppUi() {
             Spacer(modifier = Modifier.height(50.dp))
         }
     }
+}
+
+@Composable
+fun RecorderImage() {
+    val image = painterResource(id = R.drawable.ic_recorder)
+    Image(
+        painter = image,
+        contentDescription = "Record voice here",
+        modifier = Modifier.size(100.dp)
+    )
 }
 
 @Composable
